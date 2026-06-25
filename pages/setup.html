@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Balanca Tournament — Setup</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23B7432B'/><path d='M50 18 L78 46 L50 58 L22 46 Z' fill='white'/><path d='M22 46 L50 74 L78 46' fill='none' stroke='%23B7432B' stroke-width='6'/><circle cx='50' cy='52' r='9' fill='%23B7432B' stroke='white' stroke-width='2'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+<svg style="display:none" id="svg-defs">
+  <defs>
+    <symbol id="ico-balanca" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="10" fill="#B7432B"/>
+      <path d="M24 7 L40 23 L24 29.5 L8 23 Z" fill="white"/>
+      <path d="M8 23 L24 39 L40 23" fill="none" stroke="#B7432B" stroke-width="4" stroke-linejoin="round"/>
+      <circle cx="24" cy="26" r="5.5" fill="#B7432B" stroke="white" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="ico-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="ico-player" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M5 20.5 C5 16.4 8.1 13.5 12 13.5 C15.9 13.5 19 16.4 19 20.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="ico-schedule" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="8" y1="3" x2="8" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="3" x2="16" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="ico-court" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="ico-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" opacity=".2"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <a class="nav-logo" href="setup.html">
+    <svg class="balanca-logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="48" height="48" rx="10" fill="#B7432B"/>
+      <path d="M24 8 L39 23 L24 29 L9 23 Z" fill="white"/>
+      <path d="M9 23 L24 38 L39 23" fill="none" stroke="#B7432B" stroke-width="3.5" stroke-linejoin="round"/>
+      <circle cx="24" cy="26" r="5.5" fill="#B7432B" stroke="white" stroke-width="1.5"/>
+    </svg>
+    <div class="nav-brand">Balanca<span class="sub">Tournament</span></div>
+  </a>
+  <div class="header-meta" id="header-meta">Setup</div>
+</header>
+
+<div id="setup-screen" style="max-width:560px;margin:0 auto;padding:32px 20px 80px;">
+  <div style="margin-bottom:32px;animation:fadeUp .3s var(--ease) both;">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:40px;line-height:1;color:var(--navy);letter-spacing:.5px;">
+      Create <span style="color:var(--primary);">Tournament</span>
+    </div>
+    <div style="margin-top:8px;font-size:14px;color:var(--muted);font-weight:500;">
+      Doubles Pickleball · Balanced Round Robin
+    </div>
+  </div>
+
+  <div class="info-banner">
+    <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#ico-info"/></svg>
+    <span>Schedule auto-generates so every player plays <strong>equal matches</strong> and rests <strong>equal rounds</strong>. Partners rotate to avoid repeats.</span>
+  </div>
+
+  <!-- Format -->
+  <div class="field-group" style="--i:0">
+    <div class="field-label">
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><use href="#ico-player"/></svg>
+      Format
+    </div>
+    <div class="seg-control">
+      <button class="seg-btn active" data-mode="3court" onclick="selectMode('3court')">
+        <span class="seg-label">14–16</span>
+        <span class="seg-sub">Players · 3 Courts</span>
+      </button>
+      <button class="seg-btn" data-mode="4court18" onclick="selectMode('4court18')">
+        <span class="seg-label">18</span>
+        <span class="seg-sub">Players · 4 Courts</span>
+      </button>
+      <button class="seg-btn" data-mode="4court" onclick="selectMode('4court')">
+        <span class="seg-label">20</span>
+        <span class="seg-sub">Players · 4 Courts</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Players count -->
+  <div class="field-group" id="players-field" style="--i:1">
+    <div class="field-label">
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><use href="#ico-player"/></svg>
+      Players
+    </div>
+    <input class="text-input" type="number" id="inp-players" min="14" max="16" value="16" placeholder="14–16">
+  </div>
+
+  <!-- Courts display (for fixed modes) -->
+  <div class="field-group" id="courts-field" style="--i:2;display:none">
+    <div class="field-label">
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><use href="#ico-court"/></svg>
+      Courts
+    </div>
+    <div class="seg-control">
+      <button class="seg-btn active" disabled style="opacity:1;cursor:default">
+        <span class="seg-label" id="courts-fixed-label">4</span>
+        <span class="seg-sub">Courts (Fixed)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Rounds -->
+  <div class="field-group" style="--i:3">
+    <div class="field-label">
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><use href="#ico-schedule"/></svg>
+      Rounds
+      <span class="field-hint" id="rounds-hint"></span>
+    </div>
+    <div class="round-opts-wrap" id="valid-rounds-btns"></div>
+  </div>
+
+  <!-- Player names -->
+  <div class="field-group" style="--i:4">
+    <div class="field-label">
+      <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none"><use href="#ico-player"/></svg>
+      Player Names
+      <span class="field-hint" style="color:var(--muted)">Optional</span>
+    </div>
+    <div class="players-grid" id="players-grid"></div>
+  </div>
+
+  <!-- API status -->
+  <div id="api-status" style="display:none;padding:10px 14px;border-radius:var(--r-sm);font-size:13px;font-weight:600;margin-bottom:12px;"></div>
+
+  <button class="btn-cta" id="btn-start" onclick="startTournament()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#ico-play"/></svg>
+    Start Tournament
+  </button>
+</div>
+
+<script type="module" src="../components/setup.js"></script>
+</body>
+</html>

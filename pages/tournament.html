@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Balanca Tournament — Live</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23B7432B'/><path d='M50 18 L78 46 L50 58 L22 46 Z' fill='white'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+
+<!-- All icon symbols -->
+<svg style="display:none">
+  <defs>
+    <symbol id="ico-court" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="12" y1="4" x2="12" y2="20" stroke="currentColor" stroke-width="1.8"/><line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.8"/><line x1="7" y1="4" x2="7" y2="20" stroke="currentColor" stroke-width="1"/><line x1="17" y1="4" x2="17" y2="20" stroke="currentColor" stroke-width="1"/></symbol>
+    <symbol id="ico-schedule" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="8" y1="3" x2="8" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="3" x2="16" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="ico-rest" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+    <symbol id="ico-history" viewBox="0 0 24 24"><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3.05 11a9 9 0 1 0 .5-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/><polyline points="3,3 3,7 7,7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="ico-lb" viewBox="0 0 24 24"><rect x="2" y="14" width="5" height="8" rx="1" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="9.5" y="8" width="5" height="14" rx="1" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="17" y="10" width="5" height="12" rx="1" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+    <symbol id="ico-reset" viewBox="0 0 24 24"><path d="M1 4v6h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M3.51 15a9 9 0 1 0 .49-4.5L1 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="ico-check" viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="ico-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="ico-arrow-r" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="12,5 19,12 12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="ico-chevron" viewBox="0 0 24 24"><polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="ico-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8" stroke="currentColor" stroke-width="1.8" fill="none"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="9" y1="3" x2="15" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ico-player" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M5 20.5 C5 16.4 8.1 13.5 12 13.5 C15.9 13.5 19 16.4 19 20.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></symbol>
+    <symbol id="ico-trophy" viewBox="0 0 24 24"><path d="M8 21H16M12 17V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6 4H18V13C18 15.76 15.31 18 12 18C8.69 18 6 15.76 6 13V4Z" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M6 7H3C3 10.5 4.5 12 6 12" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M18 7H21C21 10.5 19.5 12 18 12" stroke="currentColor" stroke-width="1.8" fill="none"/></symbol>
+  </defs>
+</svg>
+
+<header>
+  <a class="nav-logo" href="setup.html" onclick="return confirmLeave();">
+    <svg class="balanca-logo" viewBox="0 0 48 48" fill="none">
+      <rect width="48" height="48" rx="10" fill="#B7432B"/>
+      <path d="M24 8 L39 23 L24 29 L9 23 Z" fill="white"/>
+      <path d="M9 23 L24 38 L39 23" fill="none" stroke="#B7432B" stroke-width="3.5" stroke-linejoin="round"/>
+      <circle cx="24" cy="26" r="5.5" fill="#B7432B" stroke="white" stroke-width="1.5"/>
+    </svg>
+    <div class="nav-brand">Balanca<span class="sub">Tournament</span></div>
+  </a>
+  <div class="header-meta" id="header-meta">Loading...</div>
+</header>
+
+<!-- Tournament screen -->
+<div id="tournament-screen" style="padding:20px;max-width:1100px;margin:0 auto;display:none;">
+  <div class="t-header">
+    <div class="t-title-wrap">
+      <div class="t-title">Live Matches</div>
+      <div class="round-pill" id="round-badge">R1</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <div class="stat-chips" id="stats-row"></div>
+      <button class="btn-danger-outline" onclick="confirmResetTournament()" style="border-color:rgba(183,67,43,.3)">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:5px"><use href="#ico-reset"/></svg>
+        Reset
+      </button>
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <div>
+      <div class="section-label" id="section-label">
+        <span class="dot"></span> Round 1 · Enter scores and confirm
+      </div>
+
+      <div id="bye-section" class="rest-bar" style="display:none">
+        <svg class="rest-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#ico-rest"/></svg>
+        <div>
+          <div class="rest-bar-label">Sitting Out This Round</div>
+          <div class="rest-chips" id="bye-players"></div>
+        </div>
+      </div>
+
+      <div class="courts-grid" id="courts-grid"></div>
+
+      <div class="rounds-strip" id="rounds-info"></div>
+
+      <!-- Schedule panel -->
+      <div class="sched-panel">
+        <div class="sched-panel-hdr" onclick="toggleSchedulePanel()">
+          <div class="sched-panel-hdr-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><use href="#ico-schedule"/></svg>
+            Full Tournament Schedule
+          </div>
+          <svg class="sched-chevron" id="sched-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#ico-chevron"/></svg>
+        </div>
+        <div class="sched-panel-body" id="schedule-panel-body">
+          <div class="sched-view-tabs">
+            <button class="sched-view-tab active" id="sched-view-rounds" onclick="switchSchedView('rounds')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><use href="#ico-court"/></svg>
+              By Round
+            </button>
+            <button class="sched-view-tab" id="sched-view-players" onclick="switchSchedView('players')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><use href="#ico-player"/></svg>
+              By Player
+            </button>
+          </div>
+          <div id="sched-content-rounds" class="sched-tab-content active"></div>
+          <div id="sched-content-players" class="sched-tab-content"></div>
+        </div>
+      </div>
+
+      <button class="btn-next-round" id="btn-next" onclick="nextRound()">
+        Next Round
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#ico-arrow-r"/></svg>
+      </button>
+
+      <!-- History -->
+      <div class="history-panel">
+        <div class="history-hdr" onclick="toggleHistory()">
+          <div class="history-hdr-left">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><use href="#ico-history"/></svg>
+            Round History
+          </div>
+          <svg class="sched-chevron" id="hist-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#ico-chevron"/></svg>
+        </div>
+        <div class="history-body" id="history-body"></div>
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div>
+      <div class="leaderboard">
+        <div class="lb-hdr">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><use href="#ico-lb"/></svg>
+          <div class="lb-hdr-title">Leaderboard</div>
+        </div>
+        <div class="lb-col-hdr-row">
+          <div></div><div></div>
+          <div class="lb-col-hdr" style="color:var(--primary)">PTS</div>
+          <div class="lb-col-hdr" style="color:var(--win)">W</div>
+          <div class="lb-col-hdr" style="color:var(--loss)">L</div>
+        </div>
+        <div class="lb-body" id="lb-body"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End screen -->
+<div id="end-screen">
+  <span class="champion-trophy">🏆</span>
+  <div class="champion-name" id="champion-name"></div>
+  <div class="champion-sub">Champion · Balanca Tournament</div>
+  <div class="final-table" id="final-table"></div>
+  <button class="btn-play-again" onclick="window.location.href='setup.html'">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:8px"><use href="#ico-reset"/></svg>
+    Play Again
+  </button>
+</div>
+
+<!-- Loading overlay -->
+<div id="loading-overlay" style="position:fixed;inset:0;background:rgba(244,242,239,.9);display:flex;align-items:center;justify-content:center;z-index:500;flex-direction:column;gap:16px;">
+  <div class="spinner" style="width:32px;height:32px;border-width:3px;border-color:rgba(33,36,77,.2);border-top-color:var(--primary);"></div>
+  <div style="font-weight:600;color:var(--text2);font-size:14px;">Đang tải giải đấu...</div>
+</div>
+
+<!-- Reset modal -->
+<div class="modal-overlay" id="reset-modal" onclick="if(event.target===this)closeResetModal()">
+  <div class="modal-box">
+    <span class="modal-icon">⚠️</span>
+    <div class="modal-title">Reset Tournament?</div>
+    <div class="modal-desc">All match results and scores will be cleared. This cannot be undone.</div>
+    <div class="modal-btns">
+      <button class="modal-btn-cancel" onclick="closeResetModal()">Cancel</button>
+      <button class="modal-btn-confirm" onclick="doResetTournament()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script type="module" src="../components/tournament.js"></script>
+</body>
+</html>
